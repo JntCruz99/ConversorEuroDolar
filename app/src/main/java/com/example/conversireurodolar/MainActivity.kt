@@ -14,9 +14,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.buttonConverter.setOnClickListener{
-            var euros:Double = binding.editEuro.text.toString().toDouble()
-            euros = euros * 1.07
-            binding.textView.setText("${euros.toString()}$")
+            if(!binding.editEuro.text.toString().isEmpty()){
+                var euros:Double = binding.editEuro.text.toString().toDouble()
+                euros = euros * 1.07
+                binding.textView.setText("${euros.toString()}$")
+            }else{
+                binding.textView.setText("Valor invalido")
+            }
+
         }
 
     }
